@@ -12,9 +12,9 @@
 		hideForm		= 0;
 	*/
 
-	var defaultKey		= 'dFbBfxNgzMJUeVF4GONeXF9kdZ6u8Fbg5o6QTlFipKviQlNX', // Unique master Xively API key to be used as a default
-		defaultFeeds	= [337415112], // Comma separated array of Xively Feed ID numbers
-		applicationName	= 'Arduino Light Sensor', // Replaces Xively logo in the header
+	var defaultKey		= 'fEclekukpCMio3xCKdNIvG8XbKXWiYefpgGbAbG06XQUn9Tf', // Unique master Xively API key to be used as a default
+		defaultFeeds	= [1674122958], // Comma separated array of Xively Feed ID numbers
+		applicationName	= 'Arduino BOX', // Replaces Xively logo in the header
 		dataDuration	= '', // Default duration of data to be displayed // ref: https://xively.com/dev/docs/api/data/read/historical_data/
 		dataInterval	= 0, // Default interval for data to be displayed (in seconds)
 		dataColor		= '', // CSS HEX value of color to represent data (omit leading #)
