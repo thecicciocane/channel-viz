@@ -64,6 +64,34 @@
 
 </head>
 <body>
+<CENTER><H1>Lettura Attuatori</H1></CENTER>
+<P>    <!-- P sta per paragraph, impone di saltare una linea -->
+
+<FONT SIZE=+2>Attuatori</FONT>
+<P>
+<CENTER><TABLE BORDER COLS=2 WIDTH="50%">
+ 
+     <TR>
+      <TD> <FONT SIZE=+1>Attuatore1</FONT> </div>  </TD>
+       <TD> <div id="myelement1"> </div> </TD>   
+     </TR>
+  
+     <TR>
+      <TD> <FONT SIZE=+1>Attuatore2</FONT> </div>  </TD>
+       <TD> <div id="myelement2"> </div>  </TD>   
+     </TR>
+   
+      <TR>
+          <TD><input type="number" id="Attuatore1" name="Attuatore1" min="0" max="500" value="pupo1"> </TD>
+      <TD> <button onclick="myFunction()">INVIA</button> </TD>
+     </TR>
+     
+     <TR>
+      <TD> <FONT SIZE=+1>Attuatore1</FONT> </div>  </TD>
+       <TD> <div id="myelement2"> </div>  </TD>   
+     </TR>
+
+
 
 	<!-- Header -->
 	<div style="background: #101C24;">
@@ -381,3 +409,56 @@
 
 </body>
 </html>
+<script>
+var feedID        = 1674122958,          // Feed ID  
+          datastreamID  = "actuator1";       // Datastream ID  
+          selector      = "#myelement1";   // Your element on the page  
+       
+ xively.setKey( "fEclekukpCMio3xCKdNIvG8XbKXWiYefpgGbAbG06XQUn9Tf" );
+  
+xively.datastream.get (1674122958, "actuator1", function ( datastream )
+     {  
+        
+       $(selector).html( datastream["current_value"] ); 
+       
+xively.datastream.subscribe(1674122958,"actuator1", function ( event , datastream_updated )
+       {  
+          // Display the current value from the updated datastream  
+          $(selector).html( datastream_updated["current_value"] ); 
+        });
+      
+            
+      });  
+
+document.write(selector);
+</script>
+<script>
+var feedID        = 1674122958,          // Feed ID  
+          datastreamID  = "actuator1";       // Datastream ID  
+          selector2      = "#myelement2";   // Your element on the page  
+       
+ xively.setKey( "fEclekukpCMio3xCKdNIvG8XbKXWiYefpgGbAbG06XQUn9Tf" );
+  
+xively.datastream.get (1674122958, "actuator2", function ( datastream )
+     {  
+        
+        $(selector2).html( datastream["current_value"] );  
+xively.datastream.subscribe(1674122958,"actuator2", function ( event , datastream_updated )
+       {  
+          // Display the current value from the updated datastream  
+          $(selector2).html( datastream_updated["current_value"] );  
+        });
+      
+            
+      });  
+     
+</script>
+
+<script>
+  xively.setKey( "fEclekukpCMio3xCKdNIvG8XbKXWiYefpgGbAbG06XQUn9Tf" );
+function myFunction()  
+{var params = $('#Attuatore1').val()
+ 
+    xively.datastream.update("1674122958", "actuator1", {current_value: params}, function(data){ alert("channel updated");})
+  }
+</script>
